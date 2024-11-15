@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book_social_network
+    username: gurkanc
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: localhost
+    port: 1025
+    username: gurkanc
+    password: 1234
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enable: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+
+application:
+  security:
+    jwt:
+      secret-key: 520feace80d2b0755c21d1e52c90f842f13ecdcce71d3d46da75821bf0ea6b56945bf6fa37b1a5cd02a2298a763945e5d790f9257fa44771d553e193aa0c20e56b35da1442dbb22984622cda4e1e30eeb9f1db0d5e4b0ad860a7c3e949407a8732f07885b9813dc4f34cb6ec95193474743c86f91061ff1433eb1d352ff02bb31a2125832777278428fcdd61c7a01e152cc6595ee1d5d18c50dabfb2ff7487e981ae899c16751d4f1cef86df056e4c871e79b198f220409d3f622ffe28e7db3d4e6a80bd16524d1b825fbdaca35aee7119abb675e0fb19b14f13d61682a40e4da1bac89e1a1e4c7de2cd41a0bfd5d54ce651a81265dc2377751e99ab38d6cb40
+      expiration: 86400000
+  emailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+  file:
+    uploads:
+      photos-output-path: ./uploads
+
+server:
+  port: 8088
